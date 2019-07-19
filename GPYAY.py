@@ -1,3 +1,5 @@
+# GPYAY is a simple terminal based prototype, the more advanced and feature filled versions are backend and gui
+
 import io
 import sqlite3
 
@@ -123,16 +125,15 @@ def build_data_table(text, db_con):
 # Simple gpa calculator system
 def calculate_gpa(db_con):
 
-    # cursor = db_con.cursor()
-    # cursor.execute("SELECT AVG(grade)/3 FROM transcript WHERE coursenum > 126")
-    # print(cursor.fetchone())
-
     cursor = db_con.cursor()
-    cursor.execute("SELECT subject, coursenum FROM transcript ORDER BY grade ASC")
+    cursor.execute("SELECT AVG(grade)/3 FROM transcript WHERE subject = 'EAS'")
+    print(cursor.fetchone())
 
-    for course in enumerate(cursor.fetchall()):
-        print(course)
-
+    # cursor = db_con.cursor()
+    # cursor.execute("SELECT subject, coursenum FROM transcript ORDER BY grade ASC")
+    #
+    # for course in enumerate(cursor.fetchall()):
+    #     print(course)
 
 
 main()
